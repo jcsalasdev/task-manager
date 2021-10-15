@@ -10,7 +10,7 @@
     <ul class="navbar-nav mr-auto">
 
 <% else %>
-  <%= link_to "TM", root_path, class: "navbar-brand text-white font-weight-bold border px-1 py-0" %>
+  <%= link_to "TM", root_path, class: "navbar-brand text-white font-weight-bold border px-1 py-0 rounded" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,12 +33,12 @@
 
     <% if logged_in? %>
     <div class='text-white'>
-
+        <%= link_to "Profile", users_path, class: "text-white" %> |
         <%= link_to "Sign out",sign_out_path, class: "text-white", method: :delete %>
     </div>
     <% else %>
     <div class='text-white'>
-        <%= link_to "Sign Up", sign_up_path, class: "text-white" %>
+        <%= link_to "Sign In", sign_in_path, class: "text-white" %>
     </div>
     <% end%>
   </div>
