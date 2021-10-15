@@ -1,0 +1,32 @@
+<div class="container bg-secondary rounded px-4 py-2">
+<div class="form-wrapper">
+    <%= form_with(model: @user, class: "form-group", local: true) do |f| %>
+      <% if @user.errors.any? %>
+      <div class='alert alert-danger mt-3' id="error_explanation">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <h2 class='alert-heading'><%= pluralize(@user.errors.count, "error") %> Signup failed:</h2>
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+        <%= f.label :name, class: "text-white font-weight-bold" %>
+        <%= f.text_field :name, class: "form-control border", placeholder: "Enter your name" %>
+       
+        <%= f.label :email, class: "text-white font-weight-bold pt-2" %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
+
+        <%= f.label :password, class: "text-white font-weight-bold pt-2" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Type a password" %>
+
+        <div class='text-center mt-3'>
+         <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary") %>
+        </div>
+    <% end %>
+
+  </div>
+</div> 

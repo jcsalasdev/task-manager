@@ -1,0 +1,43 @@
+.container-custom {
+  min-height: 88.55vh;
+  min-width: 100vw;
+  background-color: lightgray;
+}
+.placeicon {
+  font-family: fontawesome;
+}
+
+#card-wrapper {
+  height: min-content;
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.2rem 1rem;
+  background-size: cover;
+}
+
+.myp {
+  text-shadow: 0.5rem 0.5rem 1rem white;
+}
+.navbar .navbar-brand:hover {
+  color: aqua !important;
+  border-color: aqua !important;
+}
+
+.nav-item .nav-link:hover {
+  text-decoration-line: underline;
+}
+
+@include media-breakpoint-up(sm) {
+  ...;
+}
+@include media-breakpoint-up(md) {
+  ...;
+}
+@include media-breakpoint-up(lg) {
+  ...;
+}
+@include media-breakpoint-up(xl) {
+  ...;
+}
+@include media-breakpoint-up(xxl) {
+  ...;
+}
