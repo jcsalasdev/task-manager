@@ -7,7 +7,7 @@ class TasksTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit tasks_url
-    assert_selector "h1", text: "Tasks"
+    assert_selector "h1", text: ""
   end
 
   test "creating a Task" do
@@ -16,11 +16,10 @@ class TasksTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @task.description
     fill_in "Title", with: @task.title
-    fill_in "User", with: @task.user_id
     click_on "Create Task"
 
     assert_text "Task was successfully created"
-    click_on "Back"
+    click_on "back to task"
   end
 
   test "updating a Task" do
@@ -29,17 +28,16 @@ class TasksTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @task.description
     fill_in "Title", with: @task.title
-    fill_in "User", with: @task.user_id
     click_on "Update Task"
 
     assert_text "Task was successfully updated"
-    click_on "Back"
+    click_on "back to task"
   end
 
   test "destroying a Task" do
     visit tasks_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_text "Task was successfully destroyed"
