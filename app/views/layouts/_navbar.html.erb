@@ -33,7 +33,7 @@
 
     <% if logged_in? %>
     <div class='text-white'>
-        <%= link_to "Profile", users_path, class: "text-white" %> |
+        <%= link_to "Profile", user_path(current_user), class: "text-white" %> |
         <%= link_to "Sign out",sign_out_path, class: "text-white", method: :delete %>
     </div>
     <% else %>
