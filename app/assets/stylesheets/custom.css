@@ -1,7 +1,9 @@
+body {
+  height: 100vh;
+  background-color: lightgray;
+}
 .container-custom {
   min-height: 88.55vh;
-  min-width: 100vw;
-  background-color: lightgray;
 }
 
 #card-wrapper {

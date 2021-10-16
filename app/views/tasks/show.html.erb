@@ -17,8 +17,7 @@
     </div>
     
     <div class="card-footer text-muted">
-      <small>Created <%= time_ago_in_words(@task.created_at) %> ago, 
-      edited <%= time_ago_in_words(@task.updated_at) %> ago</small>
+      <small>Created <%= time_ago_in_words(@task.created_at) %> ago</small>
       <br>
        <%= link_to "back to task", tasks_path, class: "text-secondary " %>
     </div>
