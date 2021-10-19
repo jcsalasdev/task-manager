@@ -19,7 +19,11 @@
         
         <%= f.label :description, class: "text-white font-weight-bold pt-2" %>
         <%= f.text_area :description, class: "form-control", placeholder: "type here" %>
-     
+
+        <%= f.label :category,'Categories', class: "text-white font-weight-bold pt-2" %>
+        <%= f.collection_select(:category_ids, Category.all, :id, :cname,
+          {prompt: "Select categories here (can be empty):"}, { multiple: true, size: 3, class: "custom-select shadow rounded" }) %>
+
         <div class='text-center mt-3'>
         <%= f.submit(class: "btn btn-info") %>
         <br>

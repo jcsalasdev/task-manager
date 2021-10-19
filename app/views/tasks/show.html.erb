@@ -8,7 +8,10 @@
       <% end %>
     </div>
     <div class="card-body">
-      <h5 class="card-title"><%= @task.title %></h5>
+      <h5 class="card-title mb-0"><%= @task.title %></h5>
+        <% if @task.categories.any? %>
+            <%= render @task.categories %>
+        <% end %>
       <p class="card-text"><%= @task.description %></p>
       <% if logged_in? && (@task.user == current_user) %>
       <%= link_to "Edit", edit_task_path(@task), class: "btn btn-outline-info" %>
@@ -22,7 +25,6 @@
        <%= link_to "back to task", tasks_path, class: "text-secondary " %>
     </div>
   </div>
-  <br>
 </div>
 
 
