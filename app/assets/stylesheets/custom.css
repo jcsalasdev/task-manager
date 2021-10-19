@@ -25,18 +25,47 @@ body {
   text-decoration-line: underline;
 }
 
-@include media-breakpoint-up(sm) {
-  ...;
+.social:hover {
+  color: black !important;
 }
-@include media-breakpoint-up(md) {
-  ...;
+
+.social:link,
+.social:visited {
+  display: inline-block;
+  transform: scale(0.8);
+  animation: social 3s linear infinite;
 }
-@include media-breakpoint-up(lg) {
-  ...;
+
+@keyframes social {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
-@include media-breakpoint-up(xl) {
-  ...;
+
+.social:link:nth-child(1),
+.social:visited:nth-child(1) {
+  animation-delay: 0s;
 }
-@include media-breakpoint-up(xxl) {
-  ...;
+
+.social:link:nth-child(2),
+.social:visited:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.social:link:nth-child(3),
+.social:visited:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.social:link:nth-child(4),
+.social:visited:nth-child(4) {
+  animation-delay: 0.9s;
 }

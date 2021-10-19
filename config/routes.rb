@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   resources :tasks
   root 'pages#home'
   get 'signup', to: 'users#new', as: 'sign-up'

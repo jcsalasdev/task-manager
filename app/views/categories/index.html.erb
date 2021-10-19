@@ -1,0 +1,22 @@
+<div class='d-flex flex-column align-items-center my-3 w-75 shadow-lg bg-dark mx-auto rounded '>
+  <h1 class='text-center pt-4 text-white text-uppercase font-weight-bold'>Categories</h1>
+   <div class="card text-center w-75 mb-4 d-flex flex-row bg-dark border-0">
+  <% @categories.each do |category| %>
+    <div class='border my-3 rounded w-25 mx-auto  bg-secondary'>
+      <div class='card-body'>
+        <h4 class="card-title text-white text-uppercase"><%= category.cname %></h4>
+        <p class="card-text text-white"><%= pluralize(category.tasks.count, "task") %></p>
+        <%= link_to '', category , class: 'btn btn-sm btn-primary bi bi-eye-fill' %>
+        <% if logged_in? %>
+        <%= link_to '', edit_category_path(category), class: 'btn btn-sm btn-info bi bi-pencil-fill' %> 
+        <%= link_to '', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger  bi bi-trash-fill' %>
+        <% end %>
+     </div>
+    </div>
+    <% end %>
+    
+  </div>
+    <% if logged_in? %>
+      <%= link_to 'New Category', new_category_path , class: 'btn btn-outline-secondary mb-2 text-white' %>
+    <% end %>
+</div>

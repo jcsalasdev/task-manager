@@ -1,0 +1,27 @@
+<div class="container bg-secondary rounded px-4 py-2 shadow-lg">
+  <div class="form-wrapper">
+    <%= form_with(model: @category, local: true) do |f| %>
+      <% if @category.errors.any? %>
+          <div class='alert alert-danger mt-3' id="error_explanation">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <h2 class='alert-heading'><%= pluralize(@category.errors.count, "error") %> Error:</h2>
+            <ul>
+              <% @category.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <%= f.label :cname,'Category Name', class: "text-white font-weight-bold" %>
+      <%= f.text_field :cname, class: "form-control border", placeholder: "Enter category name" %>
+       
+      <div class='text-center mt-3'>
+        <%= f.submit(class: "btn btn-info my-2") %>
+        <br>
+        <%= link_to 'Back', categories_path, class: "text-info" %>
+      </div>
+    <% end %>
+  </div>
+</div> 
