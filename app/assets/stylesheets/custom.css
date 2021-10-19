@@ -13,6 +13,20 @@ body {
   background-size: cover;
 }
 
+.bg_opacity {
+  margin-top: 9px;
+  background-color: rgba(0, 0, 0, 0.657);
+}
+
+.bg_opacity .dropdown-item {
+  color: white;
+}
+
+.bg_opacity .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.342);
+  color: white;
+}
+
 .myp {
   background-color: rgba(0, 0, 0, 0.39);
   text-shadow: 0.5rem 0.5rem 1rem black;
