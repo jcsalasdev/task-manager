@@ -1,4 +1,4 @@
-<div class="container bg-secondary rounded px-4 py-2 shadow-lg">
+<div class="container bg-secondary w-50 rounded px-5 py-3 shadow-lg">
 <div class="form-wrapper">
     <%= form_with(model: @user, class: "form-group", local: true) do |f| %>
       <% if @user.errors.any? %>
@@ -24,7 +24,7 @@
         <%= f.password_field :password, class: "form-control", placeholder: "Type a password" %>
 
         <div class='text-center mt-3'>
-         <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-primary") %>
+         <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "btn btn-secondary btn-outline-dark text-white") %>
         </div>
     <% end %>
 

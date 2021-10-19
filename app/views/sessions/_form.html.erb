@@ -1,4 +1,4 @@
-<div class="container bg-secondary rounded px-4 py-2 shadow-lg d-flex justify-content-center mt-4"
+<div class="container bg-secondary rounded px-5 py-3 shadow-lg d-flex justify-content-center mt-4"
   style='width: 40rem'>
   <div class="form-wrapper" style='width: 100%'>
     <%= form_with(scope: :session, url:sign_in_path, class: "form-group", local: true) do |f| %>
@@ -10,8 +10,8 @@
         <%= f.password_field :password, class: "form-control", placeholder: "Enter your password" %>
         
       <div class='text-center  mt-3'>
-        <%= f.submit 'Sign In', class: "btn btn-primary mr-2" %>  
-        <%= link_to "Sign Up!", sign_up_path, class: "btn btn-primary " %>
+        <%= f.submit 'Sign In', class: "btn btn-dark mr-2" %>  
+        <%= link_to "Sign Up!", sign_up_path, class: "btn btn-dark " %>
       </div>
       
     <% end %>

@@ -7,14 +7,15 @@ body {
 }
 
 #card-wrapper {
-  height: min-content;
+  height: 75vh;
   border-radius: 1rem;
   box-shadow: 0.2rem 0.2rem 1rem;
   background-size: cover;
 }
 
 .myp {
-  text-shadow: 0.5rem 0.5rem 1rem white;
+  background-color: rgba(0, 0, 0, 0.39);
+  text-shadow: 0.5rem 0.5rem 1rem black;
 }
 .navbar .navbar-brand:hover {
   color: aqua !important;

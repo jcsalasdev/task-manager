@@ -31,10 +31,10 @@
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "View categories", categories_path, class: "dropdown-item" %>
           <% if logged_in? %>
             <%= link_to "New category", new_category_path, class: "dropdown-item" %>
           <% end %>  
-          <%= link_to "View categories", categories_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
@@ -46,7 +46,8 @@
     </div>
     <% else %>
     <div class='text-white'>
-        <%= link_to "Sign In", sign_in_path, class: "text-white" %> 
+        <%= link_to "Sign In", sign_in_path, class: "text-white" %> |
+        <%= link_to "Sign Up", sign_up_path, class: "text-white" %>
     </div>
     <% end%>
   </div>
