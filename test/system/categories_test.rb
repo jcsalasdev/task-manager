@@ -2,19 +2,21 @@ require "application_system_test_case"
 
 class CategoriesTest < ApplicationSystemTestCase
   setup do
-    @category = categories(:one)
+    @category = Category.create(cname: "Sports")
+    @log_user = User.create(name: "ctest", email: "ctest@example.com",
+                              password_digest: "123456")
   end
 
   test "visiting the index" do
     visit categories_url
-    assert_selector "h1", text: "Categories"
+    assert_selector "h1", text: "CATEGORIES"
   end
 
   test "creating a Category" do
     visit categories_url
     click_on "New Category"
 
-    fill_in "Cname", with: @category.cname
+    fill_in "Category Name", with: "Travel"
     click_on "Create Category"
 
     assert_text "Category was successfully created"
@@ -25,7 +27,7 @@ class CategoriesTest < ApplicationSystemTestCase
     visit categories_url
     click_on "Edit", match: :first
 
-    fill_in "Cname", with: @category.cname
+    fill_in "Cname", with: 'Sporty'
     click_on "Update Category"
 
     assert_text "Category was successfully updated"
