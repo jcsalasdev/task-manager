@@ -1,19 +1,7 @@
 <div class="container bg-secondary w-50 rounded px-5 py-3 shadow-lg">
 <div class="form-wrapper">
     <%= form_with(model: @user, class: "form-group", local: true) do |f| %>
-      <% if @user.errors.any? %>
-      <div class='alert alert-danger mt-3' id="error_explanation">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-        <h2 class='alert-heading'><%= pluralize(@user.errors.count, "error") %> Signup failed:</h2>
-        <ul>
-          <% @user.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+      <%= render 'shared/errors', obj: @user%>
         <%= f.label :name, class: "text-white font-weight-bold" %>
         <%= f.text_field :name, class: "form-control border", placeholder: "Enter your name" %>
        

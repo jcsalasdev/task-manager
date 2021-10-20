@@ -1,17 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg.gradient">
-<% if logged_in? %>
-<%= link_to "TM", tasks_path, class: "navbar-brand text-white font-weight-bold border rounded px-1 py-0" %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-
-<% else %>
-  <%= link_to "TM", root_path, class: "navbar-brand text-white font-weight-bold border px-1 py-0 rounded" %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,9 +6,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link text-white" %>
+        <%= link_to "TM", root_path, class: "navbar-brand text-white font-weight-bold border px-1 py-0 rounded" %>
       </li>
-<% end %>
+      <% if logged_in? %>
       <li class="nav-item">
         <%= link_to "Task", tasks_path, class: "nav-link text-white" %>
       </li> 
@@ -32,9 +19,9 @@
         </a>
         <div class="dropdown-menu bg_opacity" aria-labelledby="navbarDropdown">
           <%= link_to "View categories", categories_path, class: "dropdown-item" %>
-          <% if logged_in? %>
-            <%= link_to "New category", new_category_path, class: "dropdown-item" %>
-          <% end %>  
+          
+          <%= link_to "New category", new_category_path, class: "dropdown-item" %>
+        <% end %>  
         </div>
       </li>
     </ul>

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :require_user, except: [:show, :index]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def show

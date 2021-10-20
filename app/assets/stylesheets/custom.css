@@ -5,12 +5,70 @@ body {
 .container-custom {
   min-height: 88.55vh;
 }
+.myp {
+  opacity: 0;
+  animation: fade-from-bottom 0.8s ease-in forwards;
+  animation-delay: 1.3s;
+}
+
+.brand_bg {
+  animation: fade-from-center 1.5s ease-in forwards;
+}
+@keyframes fade-from-bottom {
+  0% {
+    transform: translateY(3rem);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-from-center {
+  0% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 #card-wrapper {
   height: 75vh;
   border-radius: 1rem;
   box-shadow: 0.2rem 0.2rem 1rem;
   background-size: cover;
+}
+.my_task {
+  max-height: 84vh;
+  overflow-y: auto;
+}
+
+.my_task::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  background-color: #cccccc;
+}
+
+.my_task::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+.my_task::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: grey;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent,
+    transparent
+  );
 }
 
 .bg_opacity {
@@ -39,7 +97,9 @@ body {
 .nav-item .nav-link:hover {
   text-decoration-line: underline;
 }
-
+.u_card {
+  border: 3px solid #343a40;
+}
 .social:hover {
   color: black !important;
 }

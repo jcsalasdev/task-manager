@@ -2,17 +2,13 @@
   <div class="card text-center w-75  rounded-1 shadow-lg">
 
     <div class="card-header text-uppercase font-weight-bold ">
-      <% if @task.user %>
-        <i class="bi bi-person-circle"></i>
-        <%= @task.user.name%>
-      <% end %>
+       <i class="bi bi-person-circle"></i>
+        <%= @task.user.name if logged_in?%>
     </div>
     <div class="card-body">
       <h5 class="card-title mb-0"><%= @task.title %></h5>
-        <% if @task.categories.any? %>
-            <%= render @task.categories %>
-        <% end %>
-      <p class="card-text"><%= @task.description %></p>
+      <%= render @task.categories if @task.categories.any? %>
+      <p class="card-text mt-2"><%= @task.description %></p>
       <% if logged_in? && (@task.user == current_user) %>
       <%= link_to "Edit", edit_task_path(@task), class: "btn btn-outline-info" %>
       <%= link_to "Delete", task_path(@task), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
@@ -22,9 +18,9 @@
     <div class="card-footer text-muted">
       <small>Created <%= time_ago_in_words(@task.created_at) %> ago</small>
       <br>
-       <%= link_to "back to task", tasks_path, class: "text-secondary " %>
+      <%= link_to "back", tasks_path, class: "text-secondary " %>
     </div>
-  </div>
+  </div>  
 </div>
 
 

@@ -1,35 +1,30 @@
-<div class='d-flex flex-column  align-items-center my-3'>
-  <div class="card text-center w-50 shadow-lg bg-dark">
-  <h1 class='text-center pt-4 text-white text-uppercase font-weight-bold bi bi-badge-tm-fill'></h1>
-  <% if logged_in? %>
+<div class='d-flex flex-column  align-items-center my-3 '>
+  <div class="card text-center w-50 shadow-lg bg-dark my_task">
+    <h1 class='mt-2 mb-0'><%= link_to '', tasks_path , class: 'text-center text-white text-uppercase font-weight-bold bi bi-badge-tm-fill' %></h1>
     <%= link_to 'New Task', new_task_path , class: 'btn btn-dark w-25 mx-auto' %>
-  <% end %>
-  <% @tasks.each do |task| %>
-    <div class='border-top border-bottom my-3 rounded w-75 mx-auto'>
-      <div class="card-header bg-secondary text-white text-uppercase">
-        <% if task.user %>
-          <i class="bi bi-person-circle"></i>
-          <%= task.user.name %>
-        <% end %>
+ 
+    <% @tasks.each do |task| %>
+      <div class='border-top border-bottom my-3 rounded w-75 mx-auto'>
+
+        <div class="card-header bg-secondary text-white text-uppercase">
+        <%= link_to task.user.name, user_path(current_user), class: "text-white" %>
+        </div>
+        
+        <div class="card-body bg-white">
+          <h4 class="card-title mb-0"><%= task.title %></h4>
+          <%= render task.categories if task.categories.any? %>
+          <p class="card-text mt-2"><%= task.description %></p>
+          <%= link_to '', task , class: 'btn btn-sm btn-primary bi bi-eye-fill' %>
+          <%= link_to '', edit_task_path(task), class: 'btn btn-sm btn-info bi bi-pencil-fill' %>
+          <%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger bi bi-trash-fill' %>
+        </div>
+        
+        <div class="card-footer text-white bg-secondary">
+          <small>Created <%= time_ago_in_words(task.created_at) %> ago,
+            Updated <%= time_ago_in_words(task.updated_at) %> ago</small>
+        </div>
+
       </div>
-      
-      <div class="card-body bg-white">
-        <h4 class="card-title mb-0"><%= task.title %></h4>
-            <% if task.categories.any? %>
-            <%= render task.categories %>
-        <% end %>
-        <p class="card-text"><%= task.description %></p>
-        <%= link_to '', task , class: 'btn btn-sm btn-primary bi bi-eye-fill' %>
-        <% if logged_in? && (task.user == current_user) %>
-        <%= link_to '', edit_task_path(task), class: 'btn btn-sm btn-info bi bi-pencil-fill' %>
-        <%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger bi bi-trash-fill' %>
-        <% end%>
-      </div>
-      <div class="card-footer text-white bg-secondary">
-        <small>Created <%= time_ago_in_words(task.created_at) %> ago,
-          Updated <%= time_ago_in_words(task.updated_at) %> ago</small>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>

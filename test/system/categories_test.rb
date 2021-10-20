@@ -2,9 +2,11 @@ require "application_system_test_case"
 
 class CategoriesTest < ApplicationSystemTestCase
   setup do
-    @category = Category.create(cname: "Sports")
-    @log_user = User.create(name: "ctest", email: "ctest@example.com",
-                              password_digest: "123456")
+    @category = categories(:one)
+    # visit sign_in_url
+    # fill_in "Email", with: "test1@mail.com"
+    # fill_in "Password", with: "123456"
+    # click_button "Sign In"
   end
 
   test "visiting the index" do
@@ -25,9 +27,9 @@ class CategoriesTest < ApplicationSystemTestCase
 
   test "updating a Category" do
     visit categories_url
-    click_on "Edit", match: :first
+    click_on "", match: :first
 
-    fill_in "Cname", with: 'Sporty'
+    fill_in "Category Name", with: 'Sporty'
     click_on "Update Category"
 
     assert_text "Category was successfully updated"
@@ -37,7 +39,7 @@ class CategoriesTest < ApplicationSystemTestCase
   test "destroying a Category" do
     visit categories_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_text "Category was successfully destroyed"

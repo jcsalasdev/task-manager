@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user, except: [:show, :index]
+  
   def index
     @categories = Category.all
   end
   def show
-    @tasks = @category.tasks
+    redirect_to categories_path
   end
 
   def new
