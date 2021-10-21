@@ -3,6 +3,7 @@ require "application_system_test_case"
 class CategoriesTest < ApplicationSystemTestCase
   setup do
     @category = categories(:one)
+    @user = users(:two)
     # visit sign_in_url
     # fill_in "Email", with: "test1@mail.com"
     # fill_in "Password", with: "123456"

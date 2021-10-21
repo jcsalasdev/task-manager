@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :require_user, only: [:edit, :update]
   
   def show
     @tasks = @user.tasks
@@ -8,18 +7,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-  end
-
-  def edit
-  end
-    
-  def update
-    if @user.update(user_params)
-        flash[:notice] = "Your account information was successfully updated"
-        redirect_to tasks_path
-    else
-        render 'edit'
-    end
   end
 
   def create
