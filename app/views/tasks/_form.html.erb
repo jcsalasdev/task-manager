@@ -11,7 +11,10 @@
         <%= f.label :category,'Categories', class: "text-white font-weight-bold pt-2" %>
         <%= f.collection_select(:category_ids, Category.all, :id, :cname,
           {prompt: "Select categories here (can be empty):"}, { multiple: true, size: 3, class: "custom-select shadow rounded" }) %>
-
+      
+        <%= f.label :tdate, 'Start Date', class: "text-white font-weight-bold pt-2" %>
+        <%= f.date_field :tdate, class:'form-control' %>
+   
         <div class='text-center mt-3'>
         <%= f.submit(class: "btn btn-info") %>
         <br>
