@@ -5,7 +5,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item active pt-1">
         <%= link_to "TM", root_path, class: "navbar-brand text-white font-weight-bold border px-1 py-0 rounded" %>
       </li>
       <% if logged_in? %>
@@ -27,14 +27,24 @@
     </ul>
 
     <% if logged_in? %>
-    <div class='text-white'>
-        <%= link_to "Profile", user_path(current_user), class: "text-white" %> |
-        <%= link_to "Sign out",sign_out_path, class: "text-white", method: :delete %>
-    </div>
-    <% else %>
-    <div class='text-white'>
-        <%= link_to "Sign In", sign_in_path, class: "text-white" %> |
-        <%= link_to "Sign Up", sign_up_path, class: "text-white" %>
+    <div class="navbar-nav ml-auto">
+      <div class='text-white nav-item'>
+          <%= link_to "Profile", user_path(current_user), class: "text-white nav-link" %>
+      </div>
+      
+      <span class="text-white nav-link">|</span>
+
+      <div class='text-white nav-item'>
+          <%= link_to "Sign out",sign_out_path, class: "text-white nav-link", method: :delete %>
+      </div>
+      <% else %>
+      <div class='text-white nav-item'>
+          <%= link_to "Sign In |", sign_in_path, class: "text-white nav-link" %>
+      </div>
+      <span class="text-white nav-link">|</span>
+      <div class='text-white nav-item'>
+          <%= link_to "Sign Up", sign_up_path, class: "text-white nav-link" %>
+      </div>
     </div>
     <% end%>
   </div>
