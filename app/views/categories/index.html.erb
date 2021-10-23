@@ -13,6 +13,7 @@
         <% if logged_in? %>
         <div>
         <%= link_to '', edit_category_path(category), class: 'btn btn-sm btn-info bi bi-pencil-fill' %> 
+        <%= link_to '', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger bi bi-trash-fill' %>
         </div>
         <% end %>
      </div>
