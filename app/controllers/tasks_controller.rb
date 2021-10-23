@@ -2,9 +2,10 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :require_user
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.where(tdate: Date.today).where(user: current_user)
+    #@tasks = current_user.tasks
   end
-
+  
   def show
   end
 
@@ -47,6 +48,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:title, :description, category_ids: [])
+      params.require(:task).permit(:title, :description, :tdate, category_ids: [])
     end
 end
