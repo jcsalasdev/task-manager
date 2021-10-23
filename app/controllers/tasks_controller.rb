@@ -3,7 +3,6 @@ class TasksController < ApplicationController
   before_action :require_user
   def index
     @tasks = Task.where(tdate: Date.today).where(user: current_user)
-    #@tasks = current_user.tasks
   end
   
   def show
